@@ -1,0 +1,25 @@
+form{
+    margin-top:25px;
+    padding:15px;
+    border: 1px solid #ccc;
+    background-color: whitesmoke;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border: 1px solid #ccc
+}
+
+button{
+    padding:10px 15px;
+    background-color: #165b94;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color: #104c7e;
+}

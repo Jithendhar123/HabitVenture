@@ -1,0 +1,14 @@
+{%block content%}
+<h2>Completed Habits</h2>
+<ul>
+    {%for habit  in completed%}
+        <li>{{habit.name}}</li>
+    {%empty%}
+        <p>No Completed Habits Yet</p>
+    {%endfor%}
+</ul>
+
+<img src="{%url 'graph'%}" alt="Habits Graph">
+
+<a href="{%url 'dashboard'%}">Back To Dashboard</a>
+{%endblock%}

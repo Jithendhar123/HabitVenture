@@ -1,0 +1,9 @@
+{%extends "accounts/base.html"%}
+{%block content%}
+<h3>Add a new habit</h3>
+<form method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Add Habit</button>
+</form>
+{%endblock%}

@@ -1,0 +1,43 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+<h1>Welcome, {{ user.username }}</h1>
+<h2>Your habits</h2>
+
+{% for habit in habits %}
+    <div>
+        <h3>{{ habit.name }}</h3>
+        <p>{{ habit.description }}</p>
+        
+        <form method="POST" action="{% url 'complete' habit.id %}">
+            {% csrf_token %}
+            <button type="submit">Mark as Completed</button>
+        </form>
+
+        {% if habit.is_done %}
+            <span>Completed</span>  <!-- Show this if the habit is done -->
+        {% endif %}
+    </div>
+{% empty %}
+    <p>No habits</p>
+{% endfor %}
+
+<div>
+    <a href="{%url 'create'%}">Create A Habit</a>
+    <ul>
+        {%for habit in habits%}
+            <li>
+                {{habit.name}} - {{habit.description}}
+                <a href="{%url 'habit_update' habit.id%}">Edit</a>
+                <a href="{%url 'habit_delete' habit.id%}">Delete</a>
+            </li>
+        {%empty%}
+            <li>No habits yet</li>
+        {%endfor%}
+    </ul>
+</div>
+<div>
+    <a href="{% url 'graph' %}">View Completed Habits</a>
+</div>
+
+{% endblock %}
